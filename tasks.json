@@ -1,0 +1,66 @@
+{
+    "crypto_base64": {
+        "name": "Base64 Decoder",
+        "category": "Crypto",
+        "value": 100,
+        "description": "Расшифруй строку: <code>R0FOR3tCYSQzNjR9</code>",
+        "flag": "GANG{Ba$364}",
+        "file": null
+    },
+    "crypto_caesar": {
+        "name": "Caesar Shift",
+        "category": "Crypto",
+        "value": 100,
+        "description": "Сообщение зашифровано сдвигом Цезаря на 13 символов: <code>Clguba</code>",
+        "flag": "ctf{python}",
+        "file": null
+    },
+    "crypto_xor": {
+        "name": "XOR Cipher",
+        "category": "Crypto",
+        "value": 150,
+        "description": "Зашифровано XOR с ключом 42. Файл: xor1.enc",
+        "flag": "ctf{xor_decrypted}",
+        "file": "crypto/xor1.enc"
+    },
+    "crypto_rsa": {
+        "name": "RSA Basic",
+        "category": "Crypto",
+        "value": 200,
+        "description": "Простой RSA, дешифруй сообщение (keys.pem + message.enc).",
+        "flag": "ctf{rsa_cracked}",
+        "file": "crypto/rsa_challenge.zip"
+    },
+    "crypto_stegano": {
+        "name": "Hidden Bits",
+        "category": "Crypto",
+        "value": 150,
+        "description": "В изображении спрятан зашифрованный текст. Найди и расшифруй.",
+        "flag": "ctf{stego_success}",
+        "file": "crypto/hidden_image.png"
+    },
+    "crypto_affine": {
+        "name": "Affine Cipher",
+        "category": "Crypto",
+        "value": 120,
+        "description": "Текст зашифрован аффинным шифром.",
+        "flag": "ctf{affine_solved}",
+        "file": "crypto/affine.txt"
+    },
+    "crypto_vigenere": {
+        "name": "Vigenère Attack",
+        "category": "Crypto",
+        "value": 180,
+        "description": "Текст зашифрован с использованием ключа. Криптоанализ тебе в помощь.",
+        "flag": "ctf{vigenere_broken}",
+        "file": "crypto/vigenere.txt"
+    },
+    "crypto_transposition": {
+        "name": "Column Transposition",
+        "category": "Crypto",
+        "value": 130,
+        "description": "Классическая перестановка колонок. Расшифруй.",
+        "flag": "ctf{columns_unscrambled}",
+        "file": null
+    }
+}

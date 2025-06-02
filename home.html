@@ -1,0 +1,103 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="main-container">
+    <h1 class="main-title">🚩 Добро пожаловать в CTF-платформу</h1>
+    <p class="main-description">
+        Это тренировочная платформа для изучения информационной безопасности. Здесь ты можешь решать задачи,
+        прокачивать навыки и подниматься в рейтинге. Перед стартом — прочитай правила:
+    </p>
+    <div class="rules-box">
+        <ul>
+            <li>⚠️ Все флаги в формате <code>GANG{...}</code></li>
+            <li>🏆 Очки начисляются один раз — только при первом решении</li>
+            <li>🚫 Брутфорс и DDoS запрещены. Нарушения = бан</li>
+            <li>🤝 Уважай других игроков и играй честно</li>
+        </ul>
+    </div>
+
+    <div class="button-group">
+        <a href="/tasks" class="matrix-button">🧠 Задания</a>
+        <a href="/scoreboard" class="matrix-button">📊 Таблица лидеров</a>
+        <a href="/logout" class="matrix-button">🔚 Выход</a>
+    </div>
+</div>
+{% endblock %}
+
+{% block styles %}
+<style>
+    .main-container {
+        max-width: 800px;
+        margin: auto;
+        padding: 30px;
+        background-color: rgba(0, 0, 0, 0.85);
+        border: 2px solid #00ff00;
+        border-radius: 12px;
+        box-shadow: 0 0 20px #00ff00;
+        text-align: center;
+    }
+
+    .main-title {
+        font-size: 36px;
+        color: #00ff00;
+        font-family: monospace;
+        text-shadow: 0 0 10px #00ff00;
+        margin-bottom: 20px;
+    }
+
+    .main-description {
+        color: #00ff00;
+        font-family: monospace;
+        font-size: 16px;
+        margin-bottom: 20px;
+    }
+
+    .rules-box {
+        text-align: left;
+        color: #00ff00;
+        font-family: monospace;
+        border: 1px dashed #00ff00;
+        padding: 15px;
+        border-radius: 10px;
+        margin-bottom: 30px;
+        background-color: rgba(0, 255, 0, 0.05);
+    }
+
+    .rules-box ul {
+        list-style-type: none;
+        padding-left: 0;
+    }
+
+    .rules-box li {
+        margin: 10px 0;
+    }
+
+    .button-group {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        align-items: center;
+    }
+
+    .matrix-button {
+        padding: 15px 30px;
+        font-size: 18px;
+        font-family: monospace;
+        font-weight: bold;
+        color: #00ff00;
+        background-color: #000;
+        border: 2px solid #00ff00;
+        border-radius: 8px;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        width: 250px;
+        text-align: center;
+    }
+
+    .matrix-button:hover {
+        background-color: #003300;
+        box-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00;
+        transform: scale(1.05);
+    }
+</style>
+{% endblock %}

@@ -1,0 +1,101 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="task-list-wrapper">
+    <h1 class="task-title">Crypto Challenges</h1>
+    <div class="task-grid">
+        {% for id, task in tasks.items() if task.category == 'Crypto' %}
+        <div class="task-card">
+            <div class="task-header">
+                <h2>{{ task.name }}</h2>
+                <span class="task-points">+{{ task.value }} pts</span>
+            </div>
+            <p><strong>Категория:</strong> {{ task.category }}</p>
+            <p>{{ task.description | safe }}</p>
+
+            {% if task.file %}
+                <a href="{{ url_for('static', filename=task.file) }}" class="download-btn" download>📥 Скачать файл</a>
+            {% endif %}
+
+            {% if task.link %}
+                <a href="{{ task.link }}" class="web-btn" target="_blank">🌐 Открыть</a>
+            {% endif %}
+
+            <a href="/challenge/{{ id }}" class="open-btn">🧩 Перейти к задаче</a>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
+
+{% block styles %}
+<style>
+    .task-list-wrapper {
+        max-width: 1200px;
+        margin: auto;
+        padding: 30px;
+        background-color: rgba(0, 0, 0, 0.95);
+        border: 2px solid #00ff00;
+        border-radius: 12px;
+        box-shadow: 0 0 15px #00ff00;
+    }
+
+    .task-title {
+        text-align: center;
+        font-size: 36px;
+        margin-bottom: 40px;
+        color: #00ff00;
+        text-shadow: 0 0 10px #00ff00;
+    }
+
+    .task-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 24px;
+    }
+
+    .task-card {
+        background-color: #000;
+        border: 2px solid #00ff00;
+        border-radius: 12px;
+        padding: 20px;
+        color: #00ff00;
+        box-shadow: 0 0 10px #00ff00;
+    }
+
+    .task-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 10px;
+    }
+
+    .task-points {
+        font-weight: bold;
+        color: #00ff00;
+        background: rgba(0, 255, 0, 0.1);
+        border: 1px solid #00ff00;
+        padding: 2px 8px;
+        border-radius: 6px;
+    }
+
+    .download-btn, .open-btn, .web-btn {
+        display: block;
+        margin-top: 10px;
+        padding: 10px;
+        border: 1px solid #00ff00;
+        background-color: black;
+        color: #00ff00;
+        text-decoration: none;
+        transition: 0.3s;
+        border-radius: 6px;
+        text-align: center;
+        font-weight: bold;
+    }
+
+    .download-btn:hover, .open-btn:hover, .web-btn:hover {
+        background-color: #003300;
+        box-shadow: 0 0 8px #00ff00;
+    }
+</style>
+{% endblock %}

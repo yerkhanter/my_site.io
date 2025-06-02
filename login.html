@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="form-container">
+    <h1>Вход</h1>
+    <form method="post">
+        <input type="text" name="name" placeholder="Имя команды" required>
+        <input type="password" name="password" placeholder="Пароль" required>
+        <button type="submit">🔑 Войти</button>
+    </form>
+    <p>Нет аккаунта? <a href="/register">Зарегистрироваться</a></p>
+</div>
+{% endblock %}
+
+{% block styles %}
+<style>
+    .form-container {
+        max-width: 400px;
+        margin: 100px auto;
+        padding: 30px;
+        background: rgba(0, 0, 0, 0.9);
+        border: 2px solid #00ff00;
+        border-radius: 10px;
+        box-shadow: 0 0 20px #00ff00;
+        color: #00ff00;
+    }
+
+    .form-container h1 {
+        text-align: center;
+        margin-bottom: 20px;
+        text-shadow: 0 0 8px #00ff00;
+    }
+
+    .form-container input {
+        width: 100%;
+        padding: 12px;
+        margin-bottom: 15px;
+        background: black;
+        border: 1px solid #00ff00;
+        border-radius: 5px;
+        color: #00ff00;
+        font-family: monospace;
+        font-size: 16px;
+    }
+
+    .form-container input:focus {
+        outline: none;
+        box-shadow: 0 0 8px #00ff00;
+    }
+
+    .form-container button {
+        width: 100%;
+        padding: 12px;
+        background-color: black;
+        color: #00ff00;
+        font-weight: bold;
+        font-size: 16px;
+        border: 1px solid #00ff00;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    .form-container button:hover {
+        background-color: #003300;
+        box-shadow: 0 0 10px #00ff00;
+    }
+
+    .form-container p {
+        text-align: center;
+        margin-top: 15px;
+    }
+
+    .form-container a {
+        color: #00ff00;
+        text-decoration: underline;
+    }
+
+    .form-container a:hover {
+        color: lime;
+    }
+</style>
+{% endblock %}

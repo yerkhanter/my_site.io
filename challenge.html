@@ -1,0 +1,117 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="challenge-container">
+    <h1>{{ ch.name }}</h1>
+    <p class="challenge-desc">{{ ch.desc | safe }}</p>
+
+    {% if ch.file %}
+        <a href="{{ url_for('static', filename=ch.file) }}" class="matrix-btn" download>📥 Скачать файл</a>
+    {% endif %}
+
+    {% if ch.link %}
+        <a href="{{ ch.link }}" class="matrix-btn" target="_blank">🌐 Открыть</a>
+    {% endif %}
+
+    <form method="POST">
+        <input type="text" name="flag" placeholder="Флаг" class="matrix-input" required>
+        <button type="submit" class="matrix-btn">✅ Проверить</button>
+    </form>
+
+    {% if correct %}
+        <p class="flag-feedback correct">✅ Флаг верный!</p>
+    {% elif incorrect %}
+        <p class="flag-feedback incorrect">❌ Флаг неверный. Попробуй ещё раз.</p>
+    {% elif solved %}
+        <p class="flag-feedback correct">✔ Задача уже решена.</p>
+    {% endif %}
+
+    <a href="/tasks" class="back-link">⬅ Назад к задачам</a>
+</div>
+{% endblock %}
+
+{% block styles %}
+<style>
+    .challenge-container {
+        max-width: 700px;
+        margin: auto;
+        background: rgba(0, 0, 0, 0.95);
+        border: 2px solid #00ff00;
+        border-radius: 10px;
+        padding: 30px;
+        box-shadow: 0 0 12px #00ff00;
+        color: #00ff00;
+        font-family: monospace;
+        text-align: center;
+    }
+
+    .challenge-container h1 {
+        font-size: 32px;
+        color: #00ff00;
+        text-shadow: 0 0 10px #00ff00;
+        margin-bottom: 20px;
+    }
+
+    .challenge-desc {
+        font-size: 16px;
+        margin-bottom: 20px;
+        line-height: 1.6;
+    }
+
+    .matrix-btn {
+        display: inline-block;
+        padding: 12px 20px;
+        margin: 10px 5px;
+        font-weight: bold;
+        font-size: 14px;
+        color: #00ff00;
+        background: black;
+        border: 1px solid #00ff00;
+        border-radius: 8px;
+        text-decoration: none;
+        transition: 0.3s;
+    }
+
+    .matrix-btn:hover {
+        background-color: #003300;
+        box-shadow: 0 0 8px #00ff00;
+    }
+
+    .matrix-input {
+        width: 100%;
+        padding: 12px;
+        margin: 15px 0;
+        background-color: black;
+        border: 1px solid #00ff00;
+        color: #00ff00;
+        font-size: 16px;
+        border-radius: 8px;
+    }
+
+    .flag-feedback {
+        font-weight: bold;
+        margin-top: 15px;
+        font-size: 16px;
+    }
+
+    .correct {
+        color: #00ff00;
+    }
+
+    .incorrect {
+        color: red;
+    }
+
+    .back-link {
+        display: inline-block;
+        margin-top: 30px;
+        color: #00ff00;
+        text-decoration: underline;
+        font-size: 14px;
+    }
+
+    .back-link:hover {
+        text-shadow: 0 0 5px #00ff00;
+    }
+</style>
+{% endblock %}
